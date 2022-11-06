@@ -9,6 +9,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.148 YaBrowser/22.7.2.899 Yowser/2.5 Safari/537.36"
 }
 
+
 def download(url, rr, numb):
     global headers
     path = ''
@@ -16,7 +17,7 @@ def download(url, rr, numb):
         path = os.getcwd() + '\\' + 'dataset' + '\\' + 'download_data' + '\\' + 'bay horse'
     if rr == 1:
         path = os.getcwd() + '\\' + 'dataset' + '\\' + 'download_data' + '\\' + 'zebra'
-    r = requests.get('https:' + url, headers = headers)
+    r = requests.get('https:' + url, headers=headers)
     if numb < 2000:
         num = str(numb)[1:4]
         num = '0' + num
@@ -27,10 +28,11 @@ def download(url, rr, numb):
     f.close()
     time.sleep(1)
 
+
 def bay_horse(limit):
     num_page = 0
     print("Downloading bay horse:")
-    bar = IncrementalBar('Progress', max= limit)
+    bar = IncrementalBar('Progress', max=limit)
     numb = 1000
     f = 1
 
@@ -41,7 +43,7 @@ def bay_horse(limit):
         second_list_of_src = []
         second_response = requests.get(second_url, headers=headers)
         second_soup = BeautifulSoup(second_response.content, 'lxml')
-        r = second_soup.find_all('img', class_= 'serp-item__thumb')
+        r = second_soup.find_all('img', class_='serp-item__thumb')
 
         for link in r:
             if len(second_list_of_src) >= limit:
@@ -58,10 +60,11 @@ def bay_horse(limit):
             bar.finish()
         time.sleep(3)
 
+
 def zebra(limit):
     num_page = 0
     print("Downloading zebra:")
-    bar = IncrementalBar('Progress', max= limit)
+    bar = IncrementalBar('Progress', max=limit)
     numb = 1000
     f = 1
 
@@ -73,7 +76,7 @@ def zebra(limit):
         first_response = requests.get(first_url, headers=headers)
         first_soup = BeautifulSoup(first_response.content, 'lxml')
 
-        r = first_soup.find_all('img', class_= 'serp-item__thumb')
+        r = first_soup.find_all('img', class_='serp-item__thumb')
 
         for link in r:
             if len(first_list_of_src) >= limit:
@@ -89,6 +92,7 @@ def zebra(limit):
         if f == 2:
             bar.finish()
         time.sleep(3)
+
 
 if __name__ == "__main__":
     print('Enter the limit of uploaded images:')
