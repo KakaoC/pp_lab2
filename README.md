@@ -4,7 +4,6 @@
 * **lxml**
 *  **csv**
 * **time**
-* **os**
 * **progress**
 * **requests**
  
