@@ -122,10 +122,10 @@ if __name__ == "__main__":
     else:
         os.mkdir(path_file + '\\' + 'bay horse')
 
-    os.system('cls')
-    zebra(int(limit1))
-    os.system('cls')
-    bay_horse(int(limit1))
+    ## os.system('cls')
+    ## zebra(int(limit1))
+    ##os.system('cls')
+    ##bay_horse(int(limit1))
     os.system('cls')
     print("Finished")
     os.system('cls')
